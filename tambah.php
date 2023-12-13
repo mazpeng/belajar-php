@@ -8,14 +8,14 @@ if (isset($_POST["submit"])) {
         echo "
         <script>
         alert('data berhasil di tambahkan!');
-        document.loccation.href = 'index.php';
+        document.location.href = 'index.php';
         </script>
         ";
     } else {
         echo "
         <script>
         alert('data Gagal di tambahkan!');
-        document.loccation.href = 'index.php';
+        document.location.href = 'index.php';
         </script>
         ";
     }
