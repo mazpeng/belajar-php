@@ -19,13 +19,14 @@ function tambah($data)
 {
     global $conn;
     //ambil data dari tiap elment
-    $merek = $data["merek"];
-    $model = $data["model"];
-    $ram = $data["ram"];
-    $warna = $data["warna"];
-    $penyimpanan = $data["penyimpanan"];
-    $harga = $data["harga"];
-    $gambar = $data["gambar"];
+    //htmlspecialchars agar tidak di style dari data
+    $merek = htmlspecialchars($data["merek"]);
+    $model = htmlspecialchars($data["model"]);
+    $ram = htmlspecialchars($data["ram"]);
+    $warna = htmlspecialchars($data["warna"]);
+    $penyimpanan = htmlspecialchars($data["penyimpanan"]);
+    $harga = htmlspecialchars($data["harga"]);
+    $gambar = htmlspecialchars($data["gambar"]);
 
     //query insert data
     $query = "INSERT INTO phone
@@ -34,5 +35,12 @@ function tambah($data)
         ";
     mysqli_query($conn, $query);
 
+    return mysqli_affected_rows($conn);
+}
+
+function hapus($id)
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM phone WHERE id = $id");
     return mysqli_affected_rows($conn);
 }

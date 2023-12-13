@@ -17,6 +17,7 @@ $phone = query("SELECT * FROM phone");
 
 <a href="tambah.php">Tambah Data HP</a>
 
+
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>
@@ -53,11 +54,11 @@ $phone = query("SELECT * FROM phone");
         <tr>
             <td><?=$i;?></td>
             <td>
-                <a href=""">ubah</a>
-                <a href=""">Hapus</a>
+                <a href="">ubah</a>
+                <a href="hapus.php?id=<?=$row["id"];?>">Hapus</a>
             </td>
             <td>
-            <img src="img/<?php echo $row["gambar"]; ?>"  width="50" alt="#">
+            <img src="img/<?=$row["gambar"];?>"  width="50" alt="#">
             </td>
             <td><?=$row["merek"];?></td>
             <td><?=$row["model"];?></td>
