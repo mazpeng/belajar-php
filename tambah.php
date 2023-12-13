@@ -1,3 +1,28 @@
+<?php
+require 'function.php';
+//cek submit input or not submit
+if (isset($_POST["submit"])) {
+
+    //cek data berhasil di tambah/tidak
+    if (tambah($_POST) > 0) {
+        echo "
+        <script>
+        alert('data berhasil di tambahkan!');
+        document.loccation.href = 'index.php';
+        </script>
+        ";
+    } else {
+        echo "
+        <script>
+        alert('data Gagal di tambahkan!');
+        document.loccation.href = 'index.php';
+        </script>
+        ";
+    }
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +36,7 @@
 <ul>
     <li>
         <label for="merek">Merek : </label>
-        <input type="text" name="merek" id="merek">
+        <input type="text" name="merek" id="merek" required>
     </li>
     <li>
         <label for="model">Model : </label>

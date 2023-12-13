@@ -14,3 +14,25 @@ function query($query)
     }
     return $rows;
 }
+
+function tambah($data)
+{
+    global $conn;
+    //ambil data dari tiap elment
+    $merek = $data["merek"];
+    $model = $data["model"];
+    $ram = $data["ram"];
+    $warna = $data["warna"];
+    $penyimpanan = $data["penyimpanan"];
+    $harga = $data["harga"];
+    $gambar = $data["gambar"];
+
+    //query insert data
+    $query = "INSERT INTO phone
+        VALUES
+        ('', '$merek', '$model', '$ram', '$warna', '$penyimpanan', '$harga', '$gambar')
+        ";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
