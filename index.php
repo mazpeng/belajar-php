@@ -55,7 +55,7 @@ $phone = query("SELECT * FROM phone");
             <td><?=$i;?></td>
             <td>
                 <a href="">ubah</a>
-                <a href="hapus.php?id=<?=$row["id"];?>">Hapus</a>
+                <a href="hapus.php?id=<?=$row["id"];?>" onclick="return confirm('yakin?');">Hapus</a>
             </td>
             <td>
             <img src="img/<?=$row["gambar"];?>"  width="50" alt="#">
