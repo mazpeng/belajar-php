@@ -1,13 +1,7 @@
 <?php
-//connect database
-$conn = mysqli_connect("localhost", "root", "", "phpnative");
+require 'index-2.php';
 
-//fetch data
-$result = mysqli_query($conn, "SELECT * FROM phone");
-
-// while ($hp = mysqli_fetch_assoc($result)) {
-//     var_dump($hp["merek"]);
-// }
+$phone = query("SELECT * FROM phone");
 
 ?>
 
@@ -52,7 +46,7 @@ $result = mysqli_query($conn, "SELECT * FROM phone");
 
         </tr>
         <?php $i = 1;?>
-        <?php while ($row = mysqli_fetch_assoc($result)): ?>
+        <?php foreach ($phone as $row): ?>
         <tr>
             <td><?=$i;?></td>
             <td>
@@ -71,7 +65,7 @@ $result = mysqli_query($conn, "SELECT * FROM phone");
 
         </tr>
         <?php $i++;?>
-        <?php endwhile;?>
+        <?php endforeach;?>
 
     </table>
 </body>
