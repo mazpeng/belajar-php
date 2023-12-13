@@ -1,5 +1,5 @@
 <?php
-require 'index-2.php';
+require 'function.php';
 
 $phone = query("SELECT * FROM phone");
 
@@ -14,6 +14,9 @@ $phone = query("SELECT * FROM phone");
 </head>
 <body>
     <h1>Daftar Hp</h1>
+
+<a href="tambah.php">Tambah Data HP</a>
+
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>
