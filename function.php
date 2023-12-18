@@ -75,3 +75,11 @@ function ubah($data)
 
     return mysqli_affected_rows($conn);
 }
+
+function cari($keyword)
+{
+    $query = "SELECT * FROM phone WHERE
+            merek = '$keyword'";
+
+    return query($query);
+}

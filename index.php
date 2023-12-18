@@ -3,6 +3,11 @@ require 'function.php';
 
 $phone = query("SELECT * FROM phone");
 
+//btn cari di klik
+if (isset($_POST["cari"])) {
+    $phone = cari($_POST["keyword"]);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +21,15 @@ $phone = query("SELECT * FROM phone");
     <h1>Daftar Hp</h1>
 
 <a href="tambah.php">Tambah Data HP</a>
+<br><br>
 
+<form action="#" method="post">
+    <input type="text" name="keyword" size="40" autofocus placeholder="masukkan merek hp.." autocomplete="off">
+    <button type="submit" name="cari">Cari!</button>
 
+</form>
+
+<br>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>
