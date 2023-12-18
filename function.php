@@ -79,7 +79,15 @@ function ubah($data)
 function cari($keyword)
 {
     $query = "SELECT * FROM phone WHERE
-            merek = '$keyword'";
+            merek LIKE '%$keyword%' OR
+            model LIKE '%$keyword%' OR
+            ram LIKE '%$keyword%' OR
+            model LIKE '%$keyword%' OR
+            penyimpanan LIKE '%$keyword%' OR
+            harga LIKE '%$keyword%' OR
+            warna LIKE '%$keyword%'
+
+            ";
 
     return query($query);
 }
