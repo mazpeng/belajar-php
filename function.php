@@ -26,7 +26,12 @@ function tambah($data)
     $warna = htmlspecialchars($data["warna"]);
     $penyimpanan = htmlspecialchars($data["penyimpanan"]);
     $harga = htmlspecialchars($data["harga"]);
-    $gambar = htmlspecialchars($data["gambar"]);
+
+    //upload gambar
+    $gambar = upload();
+    if (!$gambar) {
+        return false;
+    }
 
     //query insert data
     $query = "INSERT INTO phone
@@ -36,6 +41,47 @@ function tambah($data)
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
+}
+
+function upload()
+{
+
+    $namaFile = $_FILES['gambar']['name'];
+    $ukuranFile = $_FILES['gambar']['size'];
+    $error = $_FILES['gambar']['error'];
+    $tmpName = $_FILES['gambar']['tmp_name'];
+
+    //cek apa ada gambar yg di upload/tidak
+    if ($error === 4) {
+        echo "<script>
+                alert('pilih gambar terlebih dahulu!');
+                </script>";
+        return false;
+    }
+
+    //cek tipe upload gambar / tidak
+    $ektensiGambarValid = ['jpg', 'png', 'jpeg'];
+    $ektensiGambar = explode('.', $namaFile);
+    $ektensiGambar = strtolower(end($ektensiGambar));
+    if (!in_array($ektensiGambar, $ektensiGambarValid)) {
+        echo "<script>
+        alert('yang di upload bukan gambar!');
+        </script>";
+        return false;
+    }
+
+    //cek jika ukurang kebesaran
+    if ($ukuranFile > 100000) {
+        echo "<script>
+        alert('ukuran terlalu besar!');
+        </script>";
+        return false;
+    }
+
+    //lolos pengecekan gambar siap upload
+    move_uploaded_file($tmpName, 'img/' . $namaFile);
+    return $namaFile;
+
 }
 
 function hapus($id)
