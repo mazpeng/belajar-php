@@ -32,40 +32,41 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
     <h1>Tambah Data Hp</h1>
-    <form action="#" method="post">
-<ul>
-    <li>
-        <label for="merek">Merek : </label>
-        <input type="text" name="merek" id="merek" required>
-    </li>
-    <li>
-        <label for="model">Model : </label>
-        <input type="text" name="model" id="model">
-    </li>
-    <li>
-        <label for="ram">Ram : </label>
-        <input type="text" name="ram" id="ram">
-    </li>
-    <li>
-        <label for="warna">Warna : </label>
-        <input type="text" name="warna" id="warna">
-    </li>
-    <li>
-        <label for="penyimpanan">Penyimpanan : </label>
-        <input type="text" name="penyimpanan" id="penyimpanan">
-    </li>
-    <li>
-        <label for="harga">Harga : </label>
-        <input type="text" name="harga" id="harga">
-    </li>
-    <li>
-        <label for="gambar">Gambar : </label>
-        <input type="text" name="gambar" id="gambar">
-    </li>
-    <li>
-        <button type="submit" name="submit">Tambah Data!</button>
-    </li>
-</ul>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <label for="merek">Merek : </label>
+                <input type="text" name="merek" id="merek" required>
+            </li>
+            <li>
+                <label for="model">Model : </label>
+                <input type="text" name="model" id="model">
+            </li>
+            <li>
+                <label for="ram">Ram : </label>
+                <input type="text" name="ram" id="ram">
+            </li>
+            <li>
+                <label for="warna">Warna : </label>
+                <input type="text" name="warna" id="warna">
+            </li>
+            <li>
+                <label for="penyimpanan">Penyimpanan : </label>
+                <input type="text" name="penyimpanan" id="penyimpanan">
+            </li>
+            <li>
+                <label for="harga">Harga : </label>
+                <input type="text" name="harga" id="harga">
+            </li>
+            <li>
+                <label for="gambar">Gambar : </label>
+                <input type="file" name="gambar" id="gambar">
+            </li>
+            <li>
+                <button type="submit" name="submit">Tambah Data!</button>
+            </li>
+        </ul>
     </form>
 </body>
 </html>
