@@ -108,7 +108,14 @@ function ubah($data)
     $warna = htmlspecialchars($data["warna"]);
     $penyimpanan = htmlspecialchars($data["penyimpanan"]);
     $harga = htmlspecialchars($data["harga"]);
-    $gambar = htmlspecialchars($data["gambar"]);
+    $gambarLama = ($data["gambarLama"]);
+
+    //cek apa user up gambar baru/ tidak
+    if ($_FILES['gambar']['error'] === 4) {
+        $gambar = $gambarLama;
+    } else {
+        $gambar = upload();
+    }
 
     //query insert data
     $query = "UPDATE phone SET

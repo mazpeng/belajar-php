@@ -39,41 +39,43 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
     <h1>Ubah Data Hp</h1>
-    <form action="#" method="post">
+    <form action="#" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?=$phone["id"];?>">
-<ul>
-    <li>
-        <label for="merek">Merek : </label>
-        <input type="text" name="merek" id="merek" required value="<?=$phone["merek"];?>">
-    </li>
-    <li>
-        <label for="model">Model : </label>
-        <input type="text" name="model" id="model" value="<?=$phone["model"];?>">
-    </li>
-    <li>
-        <label for="ram">Ram : </label>
-        <input type="text" name="ram" id="ram" value="<?=$phone["ram"];?>">
-    </li>
-    <li>
-        <label for="warna">Warna : </label>
-        <input type="text" name="warna" id="warna" value="<?=$phone["warna"];?>">
-    </li>
-    <li>
-        <label for="penyimpanan">Penyimpanan : </label>
-        <input type="text" name="penyimpanan" id="penyimpanan" value="<?=$phone["penyimpanan"];?>">
-    </li>
-    <li>
-        <label for="harga">Harga : </label>
-        <input type="text" name="harga" id="harga" value="<?=$phone["harga"];?>">
-    </li>
-    <li>
-        <label for="gambar">Gambar : </label>
-        <input type="text" name="gambar" id="gambar" value="<?=$phone["gambar"];?>">
-    </li>
-    <li>
-        <button type="submit" name="submit">Ubah Data!</button>
-    </li>
-</ul>
+        <input type="hidden" name="gambarLama" value="<?=$phone["gambar"];?>">
+        <ul>
+            <li>
+                <label for="merek">Merek : </label>
+                <input type="text" name="merek" id="merek" required value="<?=$phone["merek"];?>">
+            </li>
+            <li>
+                <label for="model">Model : </label>
+                <input type="text" name="model" id="model" value="<?=$phone["model"];?>">
+            </li>
+            <li>
+                <label for="ram">Ram : </label>
+                <input type="text" name="ram" id="ram" value="<?=$phone["ram"];?>">
+            </li>
+            <li>
+                <label for="warna">Warna : </label>
+                <input type="text" name="warna" id="warna" value="<?=$phone["warna"];?>">
+            </li>
+            <li>
+                <label for="penyimpanan">Penyimpanan : </label>
+                <input type="text" name="penyimpanan" id="penyimpanan" value="<?=$phone["penyimpanan"];?>">
+            </li>
+            <li>
+                <label for="harga">Harga : </label>
+                <input type="text" name="harga" id="harga" value="<?=$phone["harga"];?>">
+            </li>
+            <li>
+                <label for="gambar">Gambar : </label>
+                <img src="img/<?=$phone['gambar'];?>" width="40"> <br>
+                <input type="file" name="gambar" id="gambar" >
+            </li>
+            <li>
+                <button type="submit" name="submit">Ubah Data!</button>
+            </li>
+        </ul>
     </form>
 </body>
 </html>
