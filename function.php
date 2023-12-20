@@ -79,8 +79,13 @@ function upload()
     }
 
     //lolos pengecekan gambar siap upload
-    move_uploaded_file($tmpName, 'img/' . $namaFile);
-    return $namaFile;
+    //generate nama file agar tidak saling timpa
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $ektensiGambar;
+
+    move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
+    return $namaFileBaru;
 
 }
 
