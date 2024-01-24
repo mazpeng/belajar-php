@@ -168,11 +168,11 @@ function registrasi($data)
         return false;
     }
 
-    //konfirmasi password
+    //cek konfirmasi password
     {
         if ($password !== $password2) {
             echo "<script>
-                    alert('password incorrect');
+                    alert('Password Tidak Sama');
                 </script>";
             return false;
         }
