@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 require 'function.php';
 
 $phone = query("SELECT * FROM phone");
@@ -18,9 +24,12 @@ if (isset($_POST["cari"])) {
     <title>daftar hp</title>
 </head>
 <body>
-    <h1>Daftar Hp</h1>
 
-<a href="tambah.php">Tambah Data HP</a>
+    <h1>Daftar Hp</h1>
+        <a href="logout.php">Logout</a>
+    <br>
+        <a href="tambah.php">Tambah Data HP</a>
+    </br>
 <br><br>
 
 <form action="#" method="post">

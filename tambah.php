@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 require 'function.php';
 //cek submit input or not submit
 if (isset($_POST["submit"])) {
